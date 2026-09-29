@@ -155,8 +155,8 @@ def fred_metrics(sid, kind):
 CAPEX_TAGS = ["PaymentsToAcquirePropertyPlantAndEquipment",
               "PaymentsToAcquireProductiveAssets",
               "PaymentsToAcquireOilAndGasPropertyAndEquipment"]
-DA_TAGS = ["DepreciationDepletionAndAmortization", "DepreciationAndAmortization",
-           "DepreciationAmortizationAndAccretionNet", "Depreciation"]
+DA_TAGS = ["Depreciation", "DepreciationDepletionAndAmortization", "DepreciationAndAmortization",
+           "DepreciationAmortizationAndAccretionNet"]
 REV_TAGS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax",
             "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax"]
 OPINC_TAGS = ["OperatingIncomeLoss"]
@@ -178,27 +178,62 @@ def cik_for(ticker):
     return _cik_map.get(ticker.upper().replace("-", "."), _cik_map.get(ticker.upper()))
 
 
+def fiscal_label(end):
+    """Label a fiscal year by the calendar year it mostly covers, so a year
+    ending March 2026 counts as 2025 alongside December-2025 year ends."""
+    return end.year if end.month >= 7 else end.year - 1
+
+
+def tag_values(gaap, tag):
+    units = gaap.get(tag, {}).get("units", {}).get("USD", [])
+    best = {}
+    for u in units:
+        if u.get("form") not in ("10-K", "10-K/A") or "start" not in u:
+            continue
+        d0, d1 = pd.Timestamp(u["start"]), pd.Timestamp(u["end"])
+        if not 340 <= (d1 - d0).days <= 380:
+            continue
+        yr = fiscal_label(d1)
+        # keep the most recently filed figure for each period
+        if yr not in best or u.get("filed", "") > best[yr][1]:
+            best[yr] = (u["val"], u.get("filed", ""))
+    return {y: v for y, (v, _) in best.items()}
+
+
 def annual_values(facts, tags):
-    """Return {fiscal_year_end_year: value} from 10-K full-year durations,
-    using the first tag in the list that has data for each year."""
+    """Return {fiscal_year: value}. Prefer a single tag (highest priority
+    with 5+ years including the latest year) so the series doesn't jump
+    between definitions; otherwise fall back to merging tags by priority."""
     gaap = facts.get("facts", {}).get("us-gaap", {})
-    result = {}
-    for tag in tags:
-        units = gaap.get(tag, {}).get("units", {}).get("USD", [])
-        best = {}
-        for u in units:
-            if u.get("form") not in ("10-K", "10-K/A") or "start" not in u:
-                continue
-            d0, d1 = pd.Timestamp(u["start"]), pd.Timestamp(u["end"])
-            if not 340 <= (d1 - d0).days <= 380:
-                continue
-            yr = d1.year
-            # keep the most recently filed figure for each period end
-            if yr not in best or u.get("filed", "") > best[yr][1]:
-                best[yr] = (u["val"], u.get("filed", ""))
-        for yr, (v, _) in best.items():
-            result.setdefault(yr, v)
-    return result
+    per_tag = [(t, tag_values(gaap, t)) for t in tags]
+    per_tag = [(t, v) for t, v in per_tag if v]
+    if not per_tag:
+        return {}
+    latest = max(max(v) for _, v in per_tag)
+    for _, v in per_tag:
+        if len(v) >= 5 and max(v) == latest:
+            return v
+    merged = {}
+    for _, v in per_tag:
+        for y, val in v.items():
+            merged.setdefault(y, val)
+    return merged
+
+
+def covered_years(comps, keys, years):
+    """Years where enough companies report every key. The latest year used
+    must have full coverage, so a year where only one early-reporting
+    company has filed can't masquerade as the industry's latest figure."""
+    n = sum(1 for c in comps.values() if all(c[k] for k in keys))
+    if n == 0:
+        return []
+    cnt = {y: sum(1 for c in comps.values() if all(y in c[k] for k in keys)) for y in years}
+    full = [y for y in years if cnt[y] == n]
+    if not full:
+        return []
+    last_full = max(full)
+    need = max(1, int(np.ceil(0.75 * n)))
+    return [y for y in years if y <= last_full and cnt[y] >= need]
 
 
 def edgar_company(ticker):
@@ -239,7 +274,7 @@ def edgar_industry(tickers, capex_relevant, cache):
     # capex / D&A: aggregate across companies reporting both in a year
     if capex_relevant:
         ratios = {}
-        for y in years:
+        for y in covered_years(comps, ["capex", "da"], years):
             cx = [c["capex"][y] for c in comps.values() if y in c["capex"] and y in c["da"]]
             da = [c["da"][y] for c in comps.values() if y in c["capex"] and y in c["da"]]
             if cx and sum(da) > 0:
@@ -255,7 +290,7 @@ def edgar_industry(tickers, capex_relevant, cache):
 
     # operating margin: aggregate
     margins = {}
-    for y in years:
+    for y in covered_years(comps, ["opinc", "rev"], years):
         oi = [c["opinc"][y] for c in comps.values() if y in c["opinc"] and y in c["rev"]]
         rv = [c["rev"][y] for c in comps.values() if y in c["opinc"] and y in c["rev"]]
         if oi and sum(rv) > 0:
