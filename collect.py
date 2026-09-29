@@ -17,6 +17,7 @@ import datetime as dt
 import json
 import os
 import time
+import traceback
 from pathlib import Path
 
 import numpy as np
@@ -32,7 +33,7 @@ FRED_KEY = os.environ.get("FRED_API_KEY", "")
 SEC_UA = os.environ.get("SEC_USER_AGENT", "Industry cycle research tool admin@example.com")
 
 TODAY = dt.date.today()
-health = {"prices_missing": [], "fred_failed": [], "edgar_failed": [],
+health = {"errors": [], "prices_missing": [], "fred_failed": [], "edgar_failed": [],
           "revisions_failed": [], "notes": []}
 
 
@@ -404,6 +405,9 @@ def write_markdown(results, meta):
     L.append(f"# Industry cycle data — {meta['run_date']}\n")
     L.append("Generated automatically. Signal counts are a screen, not a verdict. "
              "`n/a` means the data was unavailable; it is never estimated.\n")
+    if health["errors"]:
+        L.append(f"**WARNING: {len(health['errors'])} processing error(s) - see Data health. "
+                 "Affected figures show as n/a.**\n")
 
     L.append("## Screen summary\n")
     L.append("Sorted by (supply+trough share) + turn share. Format hits/available (of total).\n")
@@ -480,6 +484,14 @@ def write_markdown(results, meta):
 
 # ---------------------------------------------------------------- main
 
+def fred_cached(sid, kind, cache):
+    if not sid:
+        return None
+    if sid not in cache:
+        cache[sid] = fred_metrics(sid, kind)
+    return cache[sid]
+
+
 def main():
     cfg = yaml.safe_load((ROOT / "industries.yaml").read_text())
     inds = cfg["industries"]
@@ -504,17 +516,23 @@ def main():
     for i in inds:
         print("Processing", i["name"], flush=True)
         out = {"name": i["name"]}
-        out["rs_us"] = rs_metrics(closes, i.get("rs_us", []), bus)
-        out["rs_asx"] = rs_metrics(closes, i.get("rs_asx", []), basx)
-        for key, kind in [("fred_price", "price"), ("fred_capu", "capu")]:
-            sid = i.get(key)
-            if sid:
-                if sid not in fred_cache:
-                    fred_cache[sid] = fred_metrics(sid, kind)
-                out[kind] = fred_cache[sid]
-        bw = i.get("bellwethers", [])
-        out["edgar"] = edgar_industry(bw, i.get("capex_relevant", True), edgar_cache)
-        out["revisions"] = revisions_industry(bw, rev_cache)
+        # each block is isolated: a failure is recorded and the run continues
+        steps = [
+            ("rs_us", lambda: rs_metrics(closes, i.get("rs_us", []), bus)),
+            ("rs_asx", lambda: rs_metrics(closes, i.get("rs_asx", []), basx)),
+            ("price", lambda: fred_cached(i.get("fred_price"), "price", fred_cache)),
+            ("capu", lambda: fred_cached(i.get("fred_capu"), "capu", fred_cache)),
+            ("edgar", lambda: edgar_industry(i.get("bellwethers", []),
+                                             i.get("capex_relevant", True), edgar_cache)),
+            ("revisions", lambda: revisions_industry(i.get("bellwethers", []), rev_cache)),
+        ]
+        for key, fn in steps:
+            try:
+                out[key] = fn()
+            except Exception:
+                out[key] = None
+                tb = traceback.format_exc().strip().splitlines()
+                health["errors"].append(f"{i['name']} / {key}: " + " | ".join(tb[-4:]))
         out["screen"] = screen(out)
         results.append(out)
 
@@ -523,7 +541,11 @@ def main():
         + share(x["screen"]["turn_tally"])))
 
     meta = {"run_date": TODAY.isoformat(), "benchmarks": cfg["benchmarks"],
-            "edgar_diag": edgar_diagnostics(edgar_cache)}
+            "edgar_diag": {}}
+    try:
+        meta["edgar_diag"] = edgar_diagnostics(edgar_cache)
+    except Exception:
+        health["errors"].append("edgar diagnostics: " + traceback.format_exc().strip().splitlines()[-1])
     DATA.mkdir(exist_ok=True)
     HIST.mkdir(exist_ok=True)
     payload = {"meta": meta, "health": health, "industries": results}
@@ -536,4 +558,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        # anything that escapes is written to the repo so it can be read remotely
+        DATA.mkdir(exist_ok=True)
+        (DATA / "last_error.txt").write_text(
+            f"{dt.datetime.utcnow().isoformat()} UTC\n\n{traceback.format_exc()}")
+        raise
+    else:
+        err = DATA / "last_error.txt"
+        if err.exists():
+            err.unlink()
