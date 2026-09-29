@@ -29,6 +29,7 @@ jobs:
         run: python collect.py
 
       - name: Commit results
+        if: always()   # also push data/last_error.txt when the run fails
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
