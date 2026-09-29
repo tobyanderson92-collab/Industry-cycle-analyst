@@ -154,12 +154,19 @@ def fred_metrics(sid, kind):
 
 CAPEX_TAGS = ["PaymentsToAcquirePropertyPlantAndEquipment",
               "PaymentsToAcquireProductiveAssets",
-              "PaymentsToAcquireOilAndGasPropertyAndEquipment"]
+              "PaymentsToAcquireOilAndGasPropertyAndEquipment",
+              "PaymentsToAcquireOtherPropertyPlantAndEquipment",
+              "PaymentsForCapitalImprovements"]
 DA_TAGS = ["Depreciation", "DepreciationDepletionAndAmortization", "DepreciationAndAmortization",
-           "DepreciationAmortizationAndAccretionNet"]
+           "DepreciationAmortizationAndAccretionNet", "DepreciationAndAmortizationExcludingNonrecurringCharges",
+           "DepreciationDepletionAndAmortizationExcludingNonrecurringCharges"]
 REV_TAGS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax",
-            "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax"]
-OPINC_TAGS = ["OperatingIncomeLoss"]
+            "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "SalesRevenueGoodsNet", "RevenuesNetOfInterestExpense"]
+# operating income; pretax income as fallback for companies with no operating line
+OPINC_TAGS = ["OperatingIncomeLoss",
+              "IncomeLossFromContinuingOperationsBeforeIncomeTaxesExtraordinaryItemsNoncontrollingInterest",
+              "IncomeLossFromContinuingOperationsBeforeIncomeTaxesMinorityInterestAndIncomeLossFromEquityMethodInvestments"]
 
 _cik_map = None
 
@@ -220,42 +227,37 @@ def annual_values(facts, tags):
     return merged
 
 
-def covered_years(comps, keys, years):
-    """Years where enough companies report every key. The latest year used
-    must have full coverage, so a year where only one early-reporting
-    company has filed can't masquerade as the industry's latest figure."""
-    n = sum(1 for c in comps.values() if all(c[k] for k in keys))
-    if n == 0:
-        return []
-    cnt = {y: sum(1 for c in comps.values() if all(y in c[k] for k in keys)) for y in years}
-    full = [y for y in years if cnt[y] == n]
-    if not full:
-        return []
-    last_full = max(full)
-    need = max(1, int(np.ceil(0.75 * n)))
-    return [y for y in years if y <= last_full and cnt[y] >= need]
+def pair_series(comps, num_key, den_key):
+    """Aggregate ratio sum(num)/sum(den) across companies, per fiscal year.
 
-
-def edgar_company(ticker):
-    cik = cik_for(ticker)
-    if not cik:
-        health["edgar_failed"].append(f"{ticker} (no CIK / not a US filer)")
-        return None
-    url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
-    try:
-        resp = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=60)
-        time.sleep(0.2)
-        if resp.status_code != 200:
-            health["edgar_failed"].append(f"{ticker} (HTTP {resp.status_code})")
-            return None
-        facts = resp.json()
-    except Exception as e:
-        health["edgar_failed"].append(f"{ticker} ({e})")
-        return None
-    return {"capex": annual_values(facts, CAPEX_TAGS),
-            "da": annual_values(facts, DA_TAGS),
-            "rev": annual_values(facts, REV_TAGS),
-            "opinc": annual_values(facts, OPINC_TAGS)}
+    Active set: companies whose paired data reaches the industry's typical
+    latest year (the most common latest year across companies). Companies
+    whose data stops earlier (tag change, delisting, merger) are dropped
+    and reported, rather than silently dragging the latest year back.
+    The latest year must include every active company; history years need
+    at least 75% of them."""
+    spans = {}
+    for t, c in comps.items():
+        yrs = set(c[num_key]) & set(c[den_key])
+        yrs = {y for y in yrs if y <= TODAY.year}
+        if len(yrs) >= 3:
+            spans[t] = yrs
+    if not spans:
+        return None, [], list(comps)
+    latests = [max(v) for v in spans.values()]
+    typical = max(set(latests), key=lambda y: (latests.count(y), y))
+    active = [t for t, v in spans.items() if max(v) >= typical]
+    dropped = [t for t in comps if t not in active]
+    need = max(1, int(np.ceil(0.75 * len(active))))
+    out = {}
+    for y in range(min(min(spans[t]) for t in active), typical + 1):
+        have = [t for t in active if y in spans[t]]
+        if len(have) < need or (y == typical and len(have) < len(active)):
+            continue
+        den = sum(comps[t][den_key][y] for t in have)
+        if den > 0:
+            out[y] = sum(comps[t][num_key][y] for t in have) / den
+    return (pd.Series(out).sort_index() if out else None), active, dropped
 
 
 def edgar_industry(tickers, capex_relevant, cache):
@@ -267,20 +269,14 @@ def edgar_industry(tickers, capex_relevant, cache):
             comps[t] = cache[t]
     if not comps:
         return None
-    years = sorted({y for c in comps.values() for k in c for y in c[k]})
-    years = [y for y in years if y <= TODAY.year]
-    out = {"companies_used": list(comps)}
+    out = {}
 
-    # capex / D&A: aggregate across companies reporting both in a year
     if capex_relevant:
-        ratios = {}
-        for y in covered_years(comps, ["capex", "da"], years):
-            cx = [c["capex"][y] for c in comps.values() if y in c["capex"] and y in c["da"]]
-            da = [c["da"][y] for c in comps.values() if y in c["capex"] and y in c["da"]]
-            if cx and sum(da) > 0:
-                ratios[y] = sum(cx) / sum(da)
-        if len(ratios) >= 4:
-            s = pd.Series(ratios).sort_index()
+        s, active, dropped = pair_series(comps, "capex", "da")
+        if s is not None and len(s) >= 4:
+            out["capex_companies"] = active
+            if dropped:
+                out["capex_dropped"] = dropped
             out["capex_da_latest"] = r(s.iloc[-1])
             out["capex_da_latest_year"] = int(s.index[-1])
             out["capex_da_3y_avg"] = r(s.iloc[-3:].mean())
@@ -288,21 +284,32 @@ def edgar_industry(tickers, capex_relevant, cache):
             out["capex_da_years_below_1_last5"] = int((s.iloc[-5:] < 1).sum())
             out["capex_da_history"] = {int(k): r(v) for k, v in s.items()}
 
-    # operating margin: aggregate
-    margins = {}
-    for y in covered_years(comps, ["opinc", "rev"], years):
-        oi = [c["opinc"][y] for c in comps.values() if y in c["opinc"] and y in c["rev"]]
-        rv = [c["rev"][y] for c in comps.values() if y in c["opinc"] and y in c["rev"]]
-        if oi and sum(rv) > 0:
-            margins[y] = sum(oi) / sum(rv) * 100
-    if len(margins) >= 4:
-        s = pd.Series(margins).sort_index()
-        out["op_margin_latest_pct"] = r(s.iloc[-1], 1)
-        out["op_margin_latest_year"] = int(s.index[-1])
-        out["op_margin_prior_pct"] = r(s.iloc[-2], 1)
-        out["op_margin_pct_rank"] = r(pct_rank(s, s.iloc[-1]), 0)
-        out["op_margin_history"] = {int(k): r(v, 1) for k, v in s.items()}
-    return out
+    s, active, dropped = pair_series(comps, "opinc", "rev")
+    if s is not None and len(s) >= 4:
+        s = s * 100
+        out["margin_companies"] = active
+        if dropped:
+            out["margin_dropped"] = dropped
+        if s.iloc[-4:].abs().max() > 100:
+            out["margin_note"] = "not meaningful (revenue too small relative to costs, e.g. pre-production)"
+        else:
+            out["op_margin_latest_pct"] = r(s.iloc[-1], 1)
+            out["op_margin_latest_year"] = int(s.index[-1])
+            out["op_margin_prior_pct"] = r(s.iloc[-2], 1)
+            out["op_margin_pct_rank"] = r(pct_rank(s, s.iloc[-1]), 0) if len(s) >= 6 else None
+            out["op_margin_history"] = {int(k): r(v, 1) for k, v in s.items()}
+    return out or None
+
+
+def edgar_diagnostics(cache):
+    """Per company: year range found for each field, so gaps can be fixed."""
+    diag = {}
+    for t, c in cache.items():
+        if not c:
+            continue
+        diag[t] = {k: (f"{min(v)}-{max(v)}" if v else "none") for k, v in c.items()
+                   if k in ("capex", "da", "rev", "opinc")}
+    return diag
 
 
 # ---------------------------------------------------------------- revisions
@@ -419,17 +426,20 @@ def write_markdown(results, meta):
         L.append(f"### {ind['name']}")
         e = ind.get("edgar")
         if e:
-            L.append(f"- Fundamentals ({', '.join(e['companies_used'])}): "
-                     f"capex/D&A {fmt(e.get('capex_da_latest'))} in {fmt(e.get('capex_da_latest_year'))}, "
-                     f"3y avg {fmt(e.get('capex_da_3y_avg'))} vs long-run {fmt(e.get('capex_da_longrun_avg'))}, "
-                     f"years <1.0 in last 5: {fmt(e.get('capex_da_years_below_1_last5'))}. "
-                     f"Op margin {fmt(e.get('op_margin_latest_pct'), '%')} "
-                     f"(prior {fmt(e.get('op_margin_prior_pct'), '%')}, "
-                     f"{fmt(e.get('op_margin_pct_rank'), 'th')} pct of own history)")
-            if e.get("op_margin_history"):
-                L.append(f"  - Margin history: {e['op_margin_history']}")
-            if e.get("capex_da_history"):
-                L.append(f"  - Capex/D&A history: {e['capex_da_history']}")
+            if "capex_da_latest" in e:
+                L.append(f"- Capex/D&A ({', '.join(e['capex_companies'])}): {e['capex_da_latest']} in "
+                         f"{e['capex_da_latest_year']}, 3y avg {e['capex_da_3y_avg']} vs long-run "
+                         f"{e['capex_da_longrun_avg']}, years <1.0 in last 5: {e['capex_da_years_below_1_last5']}"
+                         + (f" [dropped, data ends early: {', '.join(e['capex_dropped'])}]" if e.get('capex_dropped') else ""))
+                L.append(f"  - History: {e['capex_da_history']}")
+            if "op_margin_latest_pct" in e:
+                L.append(f"- Op margin ({', '.join(e['margin_companies'])}): {e['op_margin_latest_pct']}% in "
+                         f"{e['op_margin_latest_year']} (prior {e['op_margin_prior_pct']}%, "
+                         f"{fmt(e.get('op_margin_pct_rank'), 'th')} pct of own history)"
+                         + (f" [dropped, data ends early: {', '.join(e['margin_dropped'])}]" if e.get('margin_dropped') else ""))
+                L.append(f"  - History: {e['op_margin_history']}")
+            if e.get("margin_note"):
+                L.append(f"- Op margin: {e['margin_note']}")
         else:
             L.append("- Fundamentals: n/a")
         for key, label in [("price", "Pricing"), ("capu", "Capacity utilisation")]:
@@ -456,6 +466,10 @@ def write_markdown(results, meta):
         L.append("")
 
     L.append("## Data health\n")
+    if meta.get("edgar_diag"):
+        L.append("EDGAR year ranges per company (capex / D&A / revenue / operating income):")
+        L.append("; ".join(f"{t}: {d['capex']} / {d['da']} / {d['rev']} / {d['opinc']}"
+                           for t, d in sorted(meta["edgar_diag"].items())) + "\n")
     for k, v in health.items():
         if v:
             L.append(f"- **{k}**: {', '.join(sorted(set(map(str, v))))}")
@@ -508,7 +522,8 @@ def main():
         (share(x["screen"]["supply_tally"]) + share(x["screen"]["trough_tally"])) / 2
         + share(x["screen"]["turn_tally"])))
 
-    meta = {"run_date": TODAY.isoformat(), "benchmarks": cfg["benchmarks"]}
+    meta = {"run_date": TODAY.isoformat(), "benchmarks": cfg["benchmarks"],
+            "edgar_diag": edgar_diagnostics(edgar_cache)}
     DATA.mkdir(exist_ok=True)
     HIST.mkdir(exist_ok=True)
     payload = {"meta": meta, "health": health, "industries": results}
