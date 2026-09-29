@@ -228,6 +228,28 @@ def annual_values(facts, tags):
     return merged
 
 
+def edgar_company(ticker):
+    cik = cik_for(ticker)
+    if not cik:
+        health["edgar_failed"].append(f"{ticker} (no CIK / not a US filer)")
+        return None
+    url = f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik:010d}.json"
+    try:
+        resp = requests.get(url, headers={"User-Agent": SEC_UA}, timeout=60)
+        time.sleep(0.2)
+        if resp.status_code != 200:
+            health["edgar_failed"].append(f"{ticker} (HTTP {resp.status_code})")
+            return None
+        facts = resp.json()
+    except Exception as e:
+        health["edgar_failed"].append(f"{ticker} ({e})")
+        return None
+    return {"capex": annual_values(facts, CAPEX_TAGS),
+            "da": annual_values(facts, DA_TAGS),
+            "rev": annual_values(facts, REV_TAGS),
+            "opinc": annual_values(facts, OPINC_TAGS)}
+
+
 def pair_series(comps, num_key, den_key):
     """Aggregate ratio sum(num)/sum(den) across companies, per fiscal year.
 
