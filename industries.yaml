@@ -26,7 +26,7 @@ industries:
   - name: Iron ore
     rs_asx: [BHP.AX, RIO.AX, FMG.AX, CIA.AX]
     fred_price: PIORECRUSDM
-    bellwethers: [CLF]
+    # no US-listed iron ore pure plays; fundamentals come from the research layer
 
   - name: Aluminium
     rs_us: [AA, CENX]
@@ -102,7 +102,7 @@ industries:
 
   - name: Fertilisers and ag inputs
     rs_us: [CF, MOS]
-    rs_asx: [IPL.AX, NUF.AX]
+    rs_asx: [DNL.AX, NUF.AX]
     fred_price: PCU325311325311
     bellwethers: [CF, MOS]
 
@@ -122,15 +122,16 @@ industries:
 
   - name: Homebuilders and residential development
     rs_us: [ITB]
-    rs_asx: [SGP.AX, MGR.AX, AVJ.AX]
+    rs_asx: [SGP.AX, MGR.AX]
     fred_price: HOUST
     bellwethers: [DHI, LEN, PHM, TOL]
 
   - name: Timber and wood products
-    rs_us: [WY, RYN, PCH]
+    rs_us: [WY, RYN]
     fred_price: WPU081
     fred_capu: CAPUTLG321S
-    bellwethers: [WY, RYN, PCH]
+    bellwethers: [WY, RYN]
+    capex_relevant: false   # timberland capex vs depletion isn't a capacity signal
 
   - name: Semiconductors - memory and storage
     rs_us: [MU, WDC, STX]
@@ -179,7 +180,6 @@ industries:
 
   - name: Shipping
     rs_us: [MATX, GNK, INSW]
-    rs_asx: [QUB.AX]
     fred_price: PCU483111483111
     bellwethers: [MATX, GNK, INSW]
 
@@ -193,10 +193,11 @@ industries:
     rs_us: [MAR, HLT, HST]
     fred_price: PCU721110721110
     bellwethers: [MAR, HLT, HST]
+    capex_relevant: false   # asset-light franchisors distort capex/D&A
 
   - name: Mining services and engineering
     rs_asx: [MND.AX, NWH.AX, PRN.AX, MAH.AX]
-    bellwethers: [FLR, KBR]
+    # no good US proxy; fundamentals come from the research layer
 
   - name: Life science tools and bioprocessing
     rs_us: [TMO, DHR, A, WAT]
