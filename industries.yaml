@@ -1,0 +1,220 @@
+# Industry universe for the cycle screen.
+# Edit freely: add/remove industries or tickers. The script flags any ticker
+# or FRED series that returns no data, so bad IDs show up in the data health
+# section of the report rather than breaking the run.
+#
+# Fields per industry:
+#   rs_us:        US ETF (single) or basket of US tickers for relative strength vs SPY
+#   rs_asx:       ASX basket for relative strength vs STW.AX (optional)
+#   fred_price:   pricing series (commodity price or producer price index)
+#   fred_capu:    capacity utilisation series (optional)
+#   bellwethers:  US 10-K filers used for capex/D&A, margins and EPS revisions
+#   capex_relevant: false for industries where capex/D&A is meaningless
+
+benchmarks:
+  us: SPY
+  asx: STW.AX
+
+industries:
+  - name: Copper
+    rs_us: [COPX]
+    rs_asx: [SFR.AX]
+    fred_price: PCOPPUSDM
+    fred_capu: CAPUTLG212S
+    bellwethers: [FCX, SCCO]
+
+  - name: Iron ore
+    rs_asx: [BHP.AX, RIO.AX, FMG.AX, CIA.AX]
+    fred_price: PIORECRUSDM
+    bellwethers: [CLF]
+
+  - name: Aluminium
+    rs_us: [AA, CENX]
+    rs_asx: [S32.AX]
+    fred_price: PALUMUSDM
+    bellwethers: [AA, CENX]
+
+  - name: Lithium
+    rs_us: [LIT]
+    rs_asx: [PLS.AX, MIN.AX, IGO.AX, LTR.AX]
+    bellwethers: [ALB]
+
+  - name: Gold miners
+    rs_us: [GDX]
+    rs_asx: [NST.AX, EVN.AX, RMS.AX, PRU.AX, GMD.AX]
+    bellwethers: [NEM, RGLD]
+
+  - name: Uranium
+    rs_us: [URA]
+    rs_asx: [PDN.AX, BOE.AX, DYL.AX, BMN.AX]
+    fred_price: PURANUSDM
+    bellwethers: [UEC]
+
+  - name: Coal
+    rs_us: [BTU, HCC, CNR]
+    rs_asx: [WHC.AX, YAL.AX, NHC.AX]
+    fred_price: PCOALAUUSDM
+    bellwethers: [BTU, HCC, CNR]
+
+  - name: Rare earths and mineral sands
+    rs_us: [REMX]
+    rs_asx: [LYC.AX, ILU.AX]
+    bellwethers: [MP]
+
+  - name: Oil and gas E&P
+    rs_us: [XOP]
+    rs_asx: [WDS.AX, STO.AX, BPT.AX, KAR.AX]
+    fred_price: DCOILWTICO
+    fred_capu: CAPUTLG211S
+    bellwethers: [COP, EOG, DVN, OXY]
+
+  - name: Natural gas producers
+    rs_us: [FCG]
+    fred_price: DHHNGSP
+    bellwethers: [EQT, AR, RRC]
+
+  - name: Oilfield services and offshore drilling
+    rs_us: [OIH]
+    rs_asx: [WOR.AX]
+    fred_price: PCU213111213111
+    bellwethers: [SLB, HAL, BKR, RIG, VAL]
+
+  - name: Refining
+    rs_us: [VLO, MPC, PSX]
+    rs_asx: [ALD.AX, VEA.AX]
+    fred_price: PCU324110324110
+    fred_capu: CAPUTLG324S
+    bellwethers: [VLO, MPC, PSX]
+
+  - name: Steel
+    rs_us: [SLX]
+    rs_asx: [BSL.AX, SGM.AX]
+    fred_price: PCU331110331110
+    fred_capu: CAPUTLG3311A2S
+    bellwethers: [NUE, STLD, CLF]
+
+  - name: Commodity chemicals
+    rs_us: [DOW, LYB, OLN, WLK, CE]
+    rs_asx: [ORI.AX]
+    fred_price: PCU325211325211
+    fred_capu: CAPUTLG325S
+    bellwethers: [DOW, LYB, OLN, WLK, CE]
+
+  - name: Fertilisers and ag inputs
+    rs_us: [CF, MOS]
+    rs_asx: [IPL.AX, NUF.AX]
+    fred_price: PCU325311325311
+    bellwethers: [CF, MOS]
+
+  - name: Paper and packaging
+    rs_us: [IP, PKG]
+    rs_asx: [AMC.AX, ORA.AX]
+    fred_price: PCU322211322211
+    fred_capu: CAPUTLG322S
+    bellwethers: [IP, PKG]
+
+  - name: Building materials
+    rs_us: [MLM, VMC, OC, MAS]
+    rs_asx: [JHX.AX, FBU.AX, RWC.AX]
+    fred_price: PCU327310327310
+    fred_capu: CAPUTLG327S
+    bellwethers: [MLM, VMC, OC, MAS]
+
+  - name: Homebuilders and residential development
+    rs_us: [ITB]
+    rs_asx: [SGP.AX, MGR.AX, AVJ.AX]
+    fred_price: HOUST
+    bellwethers: [DHI, LEN, PHM, TOL]
+
+  - name: Timber and wood products
+    rs_us: [WY, RYN, PCH]
+    fred_price: WPU081
+    fred_capu: CAPUTLG321S
+    bellwethers: [WY, RYN, PCH]
+
+  - name: Semiconductors - memory and storage
+    rs_us: [MU, WDC, STX]
+    fred_price: PCU33443344
+    fred_capu: CAPUTLG3344S
+    bellwethers: [MU, WDC, STX]
+
+  - name: Semiconductors - analog and industrial
+    rs_us: [TXN, ADI, MCHP, "ON"]
+    fred_price: PCU33443344
+    bellwethers: [TXN, ADI, MCHP, "ON"]
+
+  - name: Semiconductor equipment
+    rs_us: [AMAT, LRCX, KLAC]
+    fred_price: PCU333242333242
+    bellwethers: [AMAT, LRCX, KLAC]
+
+  - name: Autos
+    rs_us: [F, GM]
+    fred_price: PCU336110336110
+    fred_capu: CAPUTLG3361T3S
+    bellwethers: [F, GM]
+
+  - name: Agricultural and heavy machinery
+    rs_us: [DE, CAT, AGCO, CNH]
+    fred_price: PCU333111333111
+    fred_capu: CAPUTLG333S
+    bellwethers: [DE, CAT, AGCO]
+
+  - name: Agribusiness and protein
+    rs_us: [ADM, BG, TSN, PPC]
+    rs_asx: [GNC.AX, ELD.AX, AAC.AX]
+    fred_price: PCU311615311615
+    bellwethers: [ADM, BG, TSN, PPC]
+
+  - name: Trucking
+    rs_us: [KNX, WERN, JBHT, SNDR]
+    fred_price: PCU484121484121
+    bellwethers: [KNX, WERN, JBHT, SNDR]
+
+  - name: Rail
+    rs_us: [UNP, CSX, NSC]
+    rs_asx: [AZJ.AX]
+    fred_price: PCU482111482111
+    bellwethers: [UNP, CSX, NSC]
+
+  - name: Shipping
+    rs_us: [MATX, GNK, INSW]
+    rs_asx: [QUB.AX]
+    fred_price: PCU483111483111
+    bellwethers: [MATX, GNK, INSW]
+
+  - name: Airlines
+    rs_us: [JETS]
+    rs_asx: [QAN.AX, VGN.AX]
+    fred_price: PCU481111481111
+    bellwethers: [DAL, UAL, AAL, LUV]
+
+  - name: Hotels and lodging
+    rs_us: [MAR, HLT, HST]
+    fred_price: PCU721110721110
+    bellwethers: [MAR, HLT, HST]
+
+  - name: Mining services and engineering
+    rs_asx: [MND.AX, NWH.AX, PRN.AX, MAH.AX]
+    bellwethers: [FLR, KBR]
+
+  - name: Life science tools and bioprocessing
+    rs_us: [TMO, DHR, A, WAT]
+    bellwethers: [TMO, DHR, A, WAT]
+
+  - name: Wine and spirits
+    rs_us: [STZ, BF-B]
+    rs_asx: [TWE.AX]
+    bellwethers: [STZ]
+
+  - name: Consumer discretionary retail
+    rs_us: [XRT]
+    rs_asx: [JBH.AX, HVN.AX, SUL.AX, PMV.AX]
+    bellwethers: [BBY, WSM, RH]
+
+  - name: Property and casualty insurance
+    rs_us: [KIE]
+    rs_asx: [QBE.AX, IAG.AX, SUN.AX]
+    fred_price: PCU524126524126
+    bellwethers: [TRV, ALL, CB]
+    capex_relevant: false
