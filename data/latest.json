@@ -1,6 +1,6 @@
 {
  "meta": {
-  "run_date": "2026-09-29",
+  "run_date": "2026-10-01",
   "benchmarks": {
    "us": "SPY",
    "asx": "STW.AX"
@@ -49,10 +49,10 @@
     "opinc": "2008-2025"
    },
    "UEC": {
-    "capex": "2010-2025",
-    "da": "2021-2025",
-    "rev": "2020-2025",
-    "opinc": "2010-2025"
+    "capex": "2010-2026",
+    "da": "2021-2026",
+    "rev": "2020-2026",
+    "opinc": "2010-2026"
    },
    "BTU": {
     "capex": "2007-2025",
@@ -587,14 +587,9 @@
  "health": {
   "errors": [],
   "prices_missing": [],
-  "fred_failed": [
-   "CAPUTLG211S (HTTP 502)"
-  ],
+  "fred_failed": [],
   "edgar_failed": [],
-  "revisions_failed": [
-   "UEC",
-   "DAL"
-  ],
+  "revisions_failed": [],
   "notes": []
  },
  "industries": [
@@ -607,12 +602,12 @@
      "JBHT",
      "SNDR"
     ],
-    "rel_3m_pct": -21.8,
-    "rel_6m_pct": -3.0,
-    "rel_12m_pct": 32.4,
-    "ratio_vs_200d_pct": -9.1,
-    "off_52w_high_pct": -21.5,
-    "above_52w_low_pct": 57.0,
+    "rel_3m_pct": -18.2,
+    "rel_6m_pct": -1.4,
+    "rel_12m_pct": 36.3,
+    "ratio_vs_200d_pct": -7.2,
+    "off_52w_high_pct": -19.9,
+    "above_52w_low_pct": 60.2,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -726,12 +721,12 @@
     "tickers_used": [
      "LIT"
     ],
-    "rel_3m_pct": -14.7,
-    "rel_6m_pct": -21.4,
-    "rel_12m_pct": 4.5,
-    "ratio_vs_200d_pct": -14.5,
+    "rel_3m_pct": -13.3,
+    "rel_6m_pct": -21.5,
+    "rel_12m_pct": 4.2,
+    "ratio_vs_200d_pct": -14.4,
     "off_52w_high_pct": -25.2,
-    "above_52w_low_pct": 27.5,
+    "above_52w_low_pct": 27.4,
     "rel_higher_low": true
    },
    "rs_asx": {
@@ -741,12 +736,12 @@
      "IGO.AX",
      "LTR.AX"
     ],
-    "rel_3m_pct": -23.9,
-    "rel_6m_pct": -25.2,
-    "rel_12m_pct": 30.1,
-    "ratio_vs_200d_pct": -22.9,
-    "off_52w_high_pct": -42.5,
-    "above_52w_low_pct": 39.7,
+    "rel_3m_pct": -29.0,
+    "rel_6m_pct": -29.0,
+    "rel_12m_pct": 22.6,
+    "ratio_vs_200d_pct": -28.7,
+    "off_52w_high_pct": -47.0,
+    "above_52w_low_pct": 21.1,
     "rel_higher_low": true
    },
    "price": null,
@@ -799,9 +794,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -6.5,
+    "median_fy2_eps_rev_90d_pct": -9.2,
     "by_ticker": {
-     "ALB": -6.5
+     "ALB": -9.2
     }
    },
    "screen": {
@@ -845,22 +840,22 @@
     "tickers_used": [
      "FCG"
     ],
-    "rel_3m_pct": 5.2,
-    "rel_6m_pct": -26.7,
-    "rel_12m_pct": 4.4,
-    "ratio_vs_200d_pct": -3.9,
-    "off_52w_high_pct": -11.1,
-    "above_52w_low_pct": 34.2,
+    "rel_3m_pct": 7.7,
+    "rel_6m_pct": -18.0,
+    "rel_12m_pct": 9.4,
+    "ratio_vs_200d_pct": -2.7,
+    "off_52w_high_pct": -10.1,
+    "above_52w_low_pct": 35.7,
     "rel_higher_low": true
    },
    "rs_asx": null,
    "price": {
     "series": "DHHNGSP",
     "latest_date": "2026-09",
-    "latest": 2.89,
-    "yoy_pct": -2.8,
+    "latest": 2.95,
+    "yoy_pct": -0.9,
     "yoy_6m_ago_pct": -26.1,
-    "pct_rank_15y": 48.0
+    "pct_rank_15y": 50.0
    },
    "capu": null,
    "edgar": {
@@ -916,11 +911,11 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -11.6,
+    "median_fy2_eps_rev_90d_pct": -13.2,
     "by_ticker": {
-     "EQT": -11.6,
+     "EQT": -14.8,
      "AR": -7.3,
-     "RRC": -15.0
+     "RRC": -13.2
     }
    },
    "screen": {
@@ -966,12 +961,12 @@
      "MPC",
      "PSX"
     ],
-    "rel_3m_pct": 43.0,
-    "rel_6m_pct": 22.7,
-    "rel_12m_pct": 75.5,
-    "ratio_vs_200d_pct": 40.1,
-    "off_52w_high_pct": -7.1,
-    "above_52w_low_pct": 128.6,
+    "rel_3m_pct": 49.9,
+    "rel_6m_pct": 42.4,
+    "rel_12m_pct": 92.2,
+    "ratio_vs_200d_pct": 46.9,
+    "off_52w_high_pct": -1.8,
+    "above_52w_low_pct": 141.5,
     "rel_higher_low": true
    },
    "rs_asx": {
@@ -979,12 +974,12 @@
      "ALD.AX",
      "VEA.AX"
     ],
-    "rel_3m_pct": 44.1,
-    "rel_6m_pct": 29.4,
-    "rel_12m_pct": 68.1,
-    "ratio_vs_200d_pct": 36.4,
-    "off_52w_high_pct": -2.5,
-    "above_52w_low_pct": 78.8,
+    "rel_3m_pct": 44.7,
+    "rel_6m_pct": 29.0,
+    "rel_12m_pct": 69.9,
+    "ratio_vs_200d_pct": 35.9,
+    "off_52w_high_pct": -2.6,
+    "above_52w_low_pct": 78.7,
     "rel_higher_low": true
    },
    "price": {
@@ -1059,11 +1054,11 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 80.0,
+    "median_fy2_eps_rev_90d_pct": 82.8,
     "by_ticker": {
-     "VLO": 80.0,
-     "MPC": 97.0,
-     "PSX": 43.3
+     "VLO": 82.8,
+     "MPC": 102.8,
+     "PSX": 48.0
     }
    },
    "screen": {
@@ -1102,18 +1097,163 @@
    }
   },
   {
+   "name": "Oil and gas E&P",
+   "rs_us": {
+    "tickers_used": [
+     "XOP"
+    ],
+    "rel_3m_pct": 16.4,
+    "rel_6m_pct": -9.3,
+    "rel_12m_pct": 22.7,
+    "ratio_vs_200d_pct": 6.7,
+    "off_52w_high_pct": -7.3,
+    "above_52w_low_pct": 52.5,
+    "rel_higher_low": true
+   },
+   "rs_asx": {
+    "tickers_used": [
+     "WDS.AX",
+     "STO.AX",
+     "BPT.AX",
+     "KAR.AX"
+    ],
+    "rel_3m_pct": 12.4,
+    "rel_6m_pct": -18.4,
+    "rel_12m_pct": 9.8,
+    "ratio_vs_200d_pct": -1.9,
+    "off_52w_high_pct": -18.1,
+    "above_52w_low_pct": 18.2,
+    "rel_higher_low": true
+   },
+   "price": {
+    "series": "DCOILWTICO",
+    "latest_date": "2026-09",
+    "latest": 97.31,
+    "yoy_pct": 52.2,
+    "yoy_6m_ago_pct": 33.9,
+    "pct_rank_15y": 87.0
+   },
+   "capu": {
+    "series": "CAPUTLG211S",
+    "latest_date": "2026-08",
+    "latest": 93.44,
+    "yoy_pct": -3.2,
+    "yoy_6m_ago_pct": 1.6,
+    "pct_rank_15y": 28.0,
+    "chg_12m_pts": -3.1
+   },
+   "edgar": {
+    "capex_companies": [
+     "EOG",
+     "DVN",
+     "OXY"
+    ],
+    "capex_dropped": [
+     "COP"
+    ],
+    "capex_da_latest": 1.03,
+    "capex_da_latest_year": 2025,
+    "capex_da_3y_avg": 1.1,
+    "capex_da_longrun_avg": 1.42,
+    "capex_da_years_below_1_last5": 2,
+    "capex_da_history": {
+     "2009": 1.78,
+     "2010": 2.22,
+     "2011": 2.55,
+     "2012": 2.39,
+     "2013": 1.94,
+     "2014": 2.02,
+     "2015": 1.24,
+     "2016": 0.7,
+     "2017": 1.09,
+     "2018": 1.5,
+     "2019": 1.27,
+     "2020": 0.54,
+     "2021": 0.6,
+     "2022": 0.92,
+     "2023": 1.2,
+     "2024": 1.07,
+     "2025": 1.03
+    },
+    "margin_companies": [
+     "COP",
+     "EOG",
+     "DVN",
+     "OXY"
+    ],
+    "op_margin_latest_pct": 21.3,
+    "op_margin_latest_year": 2025,
+    "op_margin_prior_pct": 25.3,
+    "op_margin_pct_rank": 44.0,
+    "op_margin_history": {
+     "2017": -0.6,
+     "2018": 27.2,
+     "2019": 18.1,
+     "2020": -42.9,
+     "2021": 24.8,
+     "2022": 37.6,
+     "2023": 29.6,
+     "2024": 25.3,
+     "2025": 21.3
+    }
+   },
+   "revisions": {
+    "median_fy2_eps_rev_90d_pct": 0.5,
+    "by_ticker": {
+     "COP": 5.2,
+     "EOG": 1.1,
+     "DVN": -12.7,
+     "OXY": -0.2
+    }
+   },
+   "screen": {
+    "supply": {
+     "capex_below_DA_latest": false,
+     "capex_3y_below_longrun": true
+    },
+    "trough": {
+     "margin_bottom_40pct": false,
+     "price_bottom_40pct_15y": false,
+     "capu_bottom_40pct_15y": true
+    },
+    "turn": {
+     "margin_up_yoy": false,
+     "price_yoy_improving": true,
+     "capu_up_12m": false,
+     "eps_revisions_positive": true,
+     "rel_strength_above_200d": true,
+     "rel_higher_low": true
+    },
+    "supply_tally": {
+     "hits": 1,
+     "available": 2,
+     "of": 2
+    },
+    "trough_tally": {
+     "hits": 1,
+     "available": 3,
+     "of": 3
+    },
+    "turn_tally": {
+     "hits": 4,
+     "available": 6,
+     "of": 6
+    }
+   }
+  },
+  {
    "name": "Autos",
    "rs_us": {
     "tickers_used": [
      "F",
      "GM"
     ],
-    "rel_3m_pct": -6.6,
-    "rel_6m_pct": -7.6,
-    "rel_12m_pct": 5.5,
-    "ratio_vs_200d_pct": -9.2,
-    "off_52w_high_pct": -16.2,
-    "above_52w_low_pct": 30.9,
+    "rel_3m_pct": -4.0,
+    "rel_6m_pct": -8.1,
+    "rel_12m_pct": 3.8,
+    "ratio_vs_200d_pct": -10.0,
+    "off_52w_high_pct": -17.2,
+    "above_52w_low_pct": 29.2,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -1220,17 +1360,141 @@
    }
   },
   {
+   "name": "Semiconductors - analog and industrial",
+   "rs_us": {
+    "tickers_used": [
+     "TXN",
+     "ADI",
+     "MCHP",
+     "ON"
+    ],
+    "rel_3m_pct": -6.1,
+    "rel_6m_pct": 12.8,
+    "rel_12m_pct": 34.3,
+    "ratio_vs_200d_pct": 1.8,
+    "off_52w_high_pct": -21.7,
+    "above_52w_low_pct": 81.5,
+    "rel_higher_low": true
+   },
+   "rs_asx": null,
+   "price": {
+    "series": "PCU33443344",
+    "latest_date": "2026-08",
+    "latest": 75.55,
+    "yoy_pct": 26.7,
+    "yoy_6m_ago_pct": 15.4,
+    "pct_rank_15y": 100.0
+   },
+   "capu": null,
+   "edgar": {
+    "capex_companies": [
+     "TXN",
+     "ADI",
+     "MCHP",
+     "ON"
+    ],
+    "capex_da_latest": 1.82,
+    "capex_da_latest_year": 2025,
+    "capex_da_3y_avg": 2.68,
+    "capex_da_longrun_avg": 1.45,
+    "capex_da_years_below_1_last5": 0,
+    "capex_da_history": {
+     "2009": 0.77,
+     "2010": 1.37,
+     "2011": 1.06,
+     "2012": 0.71,
+     "2013": 0.6,
+     "2014": 0.67,
+     "2015": 0.89,
+     "2016": 0.89,
+     "2017": 1.26,
+     "2018": 1.57,
+     "2019": 1.13,
+     "2020": 0.82,
+     "2021": 2.22,
+     "2022": 2.71,
+     "2023": 3.73,
+     "2024": 2.49,
+     "2025": 1.82
+    },
+    "margin_companies": [
+     "TXN",
+     "ADI",
+     "MCHP",
+     "ON"
+    ],
+    "op_margin_latest_pct": 24.2,
+    "op_margin_latest_year": 2025,
+    "op_margin_prior_pct": 26.2,
+    "op_margin_pct_rank": 11.0,
+    "op_margin_history": {
+     "2017": 29.8,
+     "2018": 30.6,
+     "2019": 27.3,
+     "2020": 28.4,
+     "2021": 35.2,
+     "2022": 38.7,
+     "2023": 35.6,
+     "2024": 26.2,
+     "2025": 24.2
+    }
+   },
+   "revisions": {
+    "median_fy2_eps_rev_90d_pct": 11.0,
+    "by_ticker": {
+     "TXN": 13.6,
+     "ADI": 10.6,
+     "MCHP": 11.4,
+     "ON": 5.0
+    }
+   },
+   "screen": {
+    "supply": {
+     "capex_below_DA_latest": false,
+     "capex_3y_below_longrun": false
+    },
+    "trough": {
+     "margin_bottom_40pct": true,
+     "price_bottom_40pct_15y": false,
+     "capu_bottom_40pct_15y": null
+    },
+    "turn": {
+     "margin_up_yoy": false,
+     "price_yoy_improving": true,
+     "capu_up_12m": null,
+     "eps_revisions_positive": true,
+     "rel_strength_above_200d": true,
+     "rel_higher_low": true
+    },
+    "supply_tally": {
+     "hits": 0,
+     "available": 2,
+     "of": 2
+    },
+    "trough_tally": {
+     "hits": 1,
+     "available": 2,
+     "of": 3
+    },
+    "turn_tally": {
+     "hits": 4,
+     "available": 5,
+     "of": 6
+    }
+   }
+  },
+  {
    "name": "Rare earths and mineral sands",
    "rs_us": {
     "tickers_used": [
      "REMX"
     ],
-    "rel_3m_pct": -27.9,
-    "rel_6m_pct": -38.3,
-    "rel_12m_pct": -16.6,
-    "ratio_vs_200d_pct": -30.3,
-    "off_52w_high_pct": -41.1,
-    "above_52w_low_pct": 3.3,
+    "rel_3m_pct": -29.4,
+    "rel_6m_pct": -39.3,
+    "rel_12m_pct": -16.0,
+    "ratio_vs_200d_pct": -31.6,
+    "off_52w_high_pct": -42.5,
+    "above_52w_low_pct": 0.8,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -1238,12 +1502,12 @@
      "LYC.AX",
      "ILU.AX"
     ],
-    "rel_3m_pct": -18.1,
-    "rel_6m_pct": -21.0,
-    "rel_12m_pct": -9.3,
-    "ratio_vs_200d_pct": -13.1,
-    "off_52w_high_pct": -33.6,
-    "above_52w_low_pct": 14.6,
+    "rel_3m_pct": -22.1,
+    "rel_6m_pct": -27.6,
+    "rel_12m_pct": -18.4,
+    "ratio_vs_200d_pct": -18.6,
+    "off_52w_high_pct": -37.9,
+    "above_52w_low_pct": 7.3,
     "rel_higher_low": true
    },
    "price": null,
@@ -1284,9 +1548,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -20.5,
+    "median_fy2_eps_rev_90d_pct": -20.6,
     "by_ticker": {
-     "MP": -20.5
+     "MP": -20.6
     }
    },
    "screen": {
@@ -1330,12 +1594,12 @@
     "tickers_used": [
      "SLX"
     ],
-    "rel_3m_pct": 1.3,
-    "rel_6m_pct": -2.7,
-    "rel_12m_pct": 25.0,
-    "ratio_vs_200d_pct": -2.6,
-    "off_52w_high_pct": -8.4,
-    "above_52w_low_pct": 47.2,
+    "rel_3m_pct": 0.8,
+    "rel_6m_pct": -6.8,
+    "rel_12m_pct": 23.1,
+    "ratio_vs_200d_pct": -4.6,
+    "off_52w_high_pct": -10.4,
+    "above_52w_low_pct": 44.0,
     "rel_higher_low": true
    },
    "rs_asx": {
@@ -1343,12 +1607,12 @@
      "BSL.AX",
      "SGM.AX"
     ],
-    "rel_3m_pct": 0.5,
-    "rel_6m_pct": 23.2,
-    "rel_12m_pct": 65.6,
-    "ratio_vs_200d_pct": 7.8,
-    "off_52w_high_pct": -13.1,
-    "above_52w_low_pct": 74.6,
+    "rel_3m_pct": -0.6,
+    "rel_6m_pct": 22.9,
+    "rel_12m_pct": 64.5,
+    "ratio_vs_200d_pct": 6.6,
+    "off_52w_high_pct": -13.9,
+    "above_52w_low_pct": 73.0,
     "rel_higher_low": true
    },
    "price": {
@@ -1420,11 +1684,11 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 15.9,
+    "median_fy2_eps_rev_90d_pct": 16.5,
     "by_ticker": {
-     "NUE": 15.9,
-     "STLD": 7.1,
-     "CLF": 45.7
+     "NUE": 16.5,
+     "STLD": 7.9,
+     "CLF": 54.1
     }
    },
    "screen": {
@@ -1470,12 +1734,12 @@
      "LRCX",
      "KLAC"
     ],
-    "rel_3m_pct": -30.7,
-    "rel_6m_pct": 17.5,
-    "rel_12m_pct": 91.1,
-    "ratio_vs_200d_pct": 6.8,
-    "off_52w_high_pct": -32.3,
-    "above_52w_low_pct": 124.5,
+    "rel_3m_pct": -12.3,
+    "rel_6m_pct": 24.6,
+    "rel_12m_pct": 102.6,
+    "ratio_vs_200d_pct": 14.4,
+    "off_52w_high_pct": -27.1,
+    "above_52w_low_pct": 141.6,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -1588,12 +1852,12 @@
      "PRN.AX",
      "MAH.AX"
     ],
-    "rel_3m_pct": 13.7,
-    "rel_6m_pct": 30.4,
-    "rel_12m_pct": 62.6,
-    "ratio_vs_200d_pct": 19.6,
-    "off_52w_high_pct": -1.2,
-    "above_52w_low_pct": 61.5,
+    "rel_3m_pct": 15.2,
+    "rel_6m_pct": 30.2,
+    "rel_12m_pct": 60.9,
+    "ratio_vs_200d_pct": 18.1,
+    "off_52w_high_pct": -2.3,
+    "above_52w_low_pct": 57.1,
     "rel_higher_low": true
    },
    "price": null,
@@ -1644,12 +1908,12 @@
      "AGCO",
      "CNH"
     ],
-    "rel_3m_pct": -2.5,
-    "rel_6m_pct": -2.2,
-    "rel_12m_pct": 20.1,
-    "ratio_vs_200d_pct": 4.8,
-    "off_52w_high_pct": -4.9,
-    "above_52w_low_pct": 44.4,
+    "rel_3m_pct": -0.4,
+    "rel_6m_pct": -4.4,
+    "rel_12m_pct": 18.5,
+    "ratio_vs_200d_pct": 2.1,
+    "off_52w_high_pct": -7.4,
+    "above_52w_low_pct": 40.7,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -1763,12 +2027,12 @@
      "IP",
      "PKG"
     ],
-    "rel_3m_pct": -8.6,
-    "rel_6m_pct": -13.1,
-    "rel_12m_pct": -18.9,
-    "ratio_vs_200d_pct": -8.4,
-    "off_52w_high_pct": -16.0,
-    "above_52w_low_pct": 18.2,
+    "rel_3m_pct": -11.6,
+    "rel_6m_pct": -12.9,
+    "rel_12m_pct": -22.2,
+    "ratio_vs_200d_pct": -11.0,
+    "off_52w_high_pct": -18.7,
+    "above_52w_low_pct": 14.4,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -1776,12 +2040,12 @@
      "AMC.AX",
      "ORA.AX"
     ],
-    "rel_3m_pct": 1.6,
-    "rel_6m_pct": -8.7,
-    "rel_12m_pct": -12.7,
-    "ratio_vs_200d_pct": -4.2,
-    "off_52w_high_pct": -23.7,
-    "above_52w_low_pct": 19.0,
+    "rel_3m_pct": -0.5,
+    "rel_6m_pct": -10.6,
+    "rel_12m_pct": -13.0,
+    "ratio_vs_200d_pct": -6.0,
+    "off_52w_high_pct": -25.3,
+    "above_52w_low_pct": 16.4,
     "rel_higher_low": false
    },
    "price": {
@@ -1892,267 +2156,6 @@
    }
   },
   {
-   "name": "Oil and gas E&P",
-   "rs_us": {
-    "tickers_used": [
-     "XOP"
-    ],
-    "rel_3m_pct": 12.4,
-    "rel_6m_pct": -20.4,
-    "rel_12m_pct": 14.8,
-    "ratio_vs_200d_pct": 4.4,
-    "off_52w_high_pct": -9.4,
-    "above_52w_low_pct": 49.1,
-    "rel_higher_low": true
-   },
-   "rs_asx": {
-    "tickers_used": [
-     "WDS.AX",
-     "STO.AX",
-     "BPT.AX",
-     "KAR.AX"
-    ],
-    "rel_3m_pct": 11.2,
-    "rel_6m_pct": -16.4,
-    "rel_12m_pct": 7.8,
-    "ratio_vs_200d_pct": -2.3,
-    "off_52w_high_pct": -18.4,
-    "above_52w_low_pct": 17.8,
-    "rel_higher_low": true
-   },
-   "price": {
-    "series": "DCOILWTICO",
-    "latest_date": "2026-09",
-    "latest": 98.42,
-    "yoy_pct": 53.9,
-    "yoy_6m_ago_pct": 33.9,
-    "pct_rank_15y": 88.0
-   },
-   "capu": null,
-   "edgar": {
-    "capex_companies": [
-     "EOG",
-     "DVN",
-     "OXY"
-    ],
-    "capex_dropped": [
-     "COP"
-    ],
-    "capex_da_latest": 1.03,
-    "capex_da_latest_year": 2025,
-    "capex_da_3y_avg": 1.1,
-    "capex_da_longrun_avg": 1.42,
-    "capex_da_years_below_1_last5": 2,
-    "capex_da_history": {
-     "2009": 1.78,
-     "2010": 2.22,
-     "2011": 2.55,
-     "2012": 2.39,
-     "2013": 1.94,
-     "2014": 2.02,
-     "2015": 1.24,
-     "2016": 0.7,
-     "2017": 1.09,
-     "2018": 1.5,
-     "2019": 1.27,
-     "2020": 0.54,
-     "2021": 0.6,
-     "2022": 0.92,
-     "2023": 1.2,
-     "2024": 1.07,
-     "2025": 1.03
-    },
-    "margin_companies": [
-     "COP",
-     "EOG",
-     "DVN",
-     "OXY"
-    ],
-    "op_margin_latest_pct": 21.3,
-    "op_margin_latest_year": 2025,
-    "op_margin_prior_pct": 25.3,
-    "op_margin_pct_rank": 44.0,
-    "op_margin_history": {
-     "2017": -0.6,
-     "2018": 27.2,
-     "2019": 18.1,
-     "2020": -42.9,
-     "2021": 24.8,
-     "2022": 37.6,
-     "2023": 29.6,
-     "2024": 25.3,
-     "2025": 21.3
-    }
-   },
-   "revisions": {
-    "median_fy2_eps_rev_90d_pct": -0.4,
-    "by_ticker": {
-     "COP": 5.1,
-     "EOG": 1.1,
-     "DVN": -13.9,
-     "OXY": -2.0
-    }
-   },
-   "screen": {
-    "supply": {
-     "capex_below_DA_latest": false,
-     "capex_3y_below_longrun": true
-    },
-    "trough": {
-     "margin_bottom_40pct": false,
-     "price_bottom_40pct_15y": false,
-     "capu_bottom_40pct_15y": null
-    },
-    "turn": {
-     "margin_up_yoy": false,
-     "price_yoy_improving": true,
-     "capu_up_12m": null,
-     "eps_revisions_positive": false,
-     "rel_strength_above_200d": true,
-     "rel_higher_low": true
-    },
-    "supply_tally": {
-     "hits": 1,
-     "available": 2,
-     "of": 2
-    },
-    "trough_tally": {
-     "hits": 0,
-     "available": 2,
-     "of": 3
-    },
-    "turn_tally": {
-     "hits": 3,
-     "available": 5,
-     "of": 6
-    }
-   }
-  },
-  {
-   "name": "Semiconductors - analog and industrial",
-   "rs_us": {
-    "tickers_used": [
-     "TXN",
-     "ADI",
-     "MCHP",
-     "ON"
-    ],
-    "rel_3m_pct": -9.8,
-    "rel_6m_pct": 11.5,
-    "rel_12m_pct": 28.6,
-    "ratio_vs_200d_pct": -0.6,
-    "off_52w_high_pct": -23.6,
-    "above_52w_low_pct": 77.1,
-    "rel_higher_low": true
-   },
-   "rs_asx": null,
-   "price": {
-    "series": "PCU33443344",
-    "latest_date": "2026-08",
-    "latest": 75.55,
-    "yoy_pct": 26.7,
-    "yoy_6m_ago_pct": 15.4,
-    "pct_rank_15y": 100.0
-   },
-   "capu": null,
-   "edgar": {
-    "capex_companies": [
-     "TXN",
-     "ADI",
-     "MCHP",
-     "ON"
-    ],
-    "capex_da_latest": 1.82,
-    "capex_da_latest_year": 2025,
-    "capex_da_3y_avg": 2.68,
-    "capex_da_longrun_avg": 1.45,
-    "capex_da_years_below_1_last5": 0,
-    "capex_da_history": {
-     "2009": 0.77,
-     "2010": 1.37,
-     "2011": 1.06,
-     "2012": 0.71,
-     "2013": 0.6,
-     "2014": 0.67,
-     "2015": 0.89,
-     "2016": 0.89,
-     "2017": 1.26,
-     "2018": 1.57,
-     "2019": 1.13,
-     "2020": 0.82,
-     "2021": 2.22,
-     "2022": 2.71,
-     "2023": 3.73,
-     "2024": 2.49,
-     "2025": 1.82
-    },
-    "margin_companies": [
-     "TXN",
-     "ADI",
-     "MCHP",
-     "ON"
-    ],
-    "op_margin_latest_pct": 24.2,
-    "op_margin_latest_year": 2025,
-    "op_margin_prior_pct": 26.2,
-    "op_margin_pct_rank": 11.0,
-    "op_margin_history": {
-     "2017": 29.8,
-     "2018": 30.6,
-     "2019": 27.3,
-     "2020": 28.4,
-     "2021": 35.2,
-     "2022": 38.7,
-     "2023": 35.6,
-     "2024": 26.2,
-     "2025": 24.2
-    }
-   },
-   "revisions": {
-    "median_fy2_eps_rev_90d_pct": 11.0,
-    "by_ticker": {
-     "TXN": 13.6,
-     "ADI": 10.6,
-     "MCHP": 11.4,
-     "ON": 5.0
-    }
-   },
-   "screen": {
-    "supply": {
-     "capex_below_DA_latest": false,
-     "capex_3y_below_longrun": false
-    },
-    "trough": {
-     "margin_bottom_40pct": true,
-     "price_bottom_40pct_15y": false,
-     "capu_bottom_40pct_15y": null
-    },
-    "turn": {
-     "margin_up_yoy": false,
-     "price_yoy_improving": true,
-     "capu_up_12m": null,
-     "eps_revisions_positive": true,
-     "rel_strength_above_200d": false,
-     "rel_higher_low": true
-    },
-    "supply_tally": {
-     "hits": 0,
-     "available": 2,
-     "of": 2
-    },
-    "trough_tally": {
-     "hits": 1,
-     "available": 2,
-     "of": 3
-    },
-    "turn_tally": {
-     "hits": 3,
-     "available": 5,
-     "of": 6
-    }
-   }
-  },
-  {
    "name": "Rail",
    "rs_us": {
     "tickers_used": [
@@ -2160,24 +2163,24 @@
      "CSX",
      "NSC"
     ],
-    "rel_3m_pct": -4.1,
-    "rel_6m_pct": -4.9,
-    "rel_12m_pct": 4.3,
-    "ratio_vs_200d_pct": -2.5,
-    "off_52w_high_pct": -10.9,
-    "above_52w_low_pct": 26.5,
+    "rel_3m_pct": -6.3,
+    "rel_6m_pct": -4.6,
+    "rel_12m_pct": 2.0,
+    "ratio_vs_200d_pct": -3.0,
+    "off_52w_high_pct": -11.5,
+    "above_52w_low_pct": 25.7,
     "rel_higher_low": true
    },
    "rs_asx": {
     "tickers_used": [
      "AZJ.AX"
     ],
-    "rel_3m_pct": -7.6,
-    "rel_6m_pct": -7.5,
-    "rel_12m_pct": 20.5,
-    "ratio_vs_200d_pct": -4.0,
-    "off_52w_high_pct": -14.3,
-    "above_52w_low_pct": 20.6,
+    "rel_3m_pct": -6.7,
+    "rel_6m_pct": -9.3,
+    "rel_12m_pct": 20.7,
+    "ratio_vs_200d_pct": -3.7,
+    "off_52w_high_pct": -14.0,
+    "above_52w_low_pct": 20.9,
     "rel_higher_low": true
    },
    "price": {
@@ -2228,10 +2231,10 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 4.0,
+    "median_fy2_eps_rev_90d_pct": 3.5,
     "by_ticker": {
-     "UNP": 3.1,
-     "CSX": 4.0,
+     "UNP": 3.2,
+     "CSX": 3.5,
      "NSC": 4.9
     }
    },
@@ -2278,12 +2281,12 @@
      "WDC",
      "STX"
     ],
-    "rel_3m_pct": -17.2,
-    "rel_6m_pct": 93.2,
-    "rel_12m_pct": 342.0,
-    "ratio_vs_200d_pct": 33.8,
-    "off_52w_high_pct": -22.0,
-    "above_52w_low_pct": 421.7,
+    "rel_3m_pct": 1.9,
+    "rel_6m_pct": 91.6,
+    "rel_12m_pct": 324.3,
+    "ratio_vs_200d_pct": 36.2,
+    "off_52w_high_pct": -19.7,
+    "above_52w_low_pct": 400.5,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -2356,7 +2359,7 @@
    "revisions": {
     "median_fy2_eps_rev_90d_pct": 29.2,
     "by_ticker": {
-     "MU": 7.6,
+     "MU": 25.7,
      "WDC": 29.2,
      "STX": 42.3
     }
@@ -2404,12 +2407,12 @@
      "HCC",
      "CNR"
     ],
-    "rel_3m_pct": 7.9,
-    "rel_6m_pct": -35.5,
-    "rel_12m_pct": 2.2,
-    "ratio_vs_200d_pct": -10.4,
-    "off_52w_high_pct": -21.7,
-    "above_52w_low_pct": 20.5,
+    "rel_3m_pct": 8.1,
+    "rel_6m_pct": -25.8,
+    "rel_12m_pct": -1.1,
+    "ratio_vs_200d_pct": -11.7,
+    "off_52w_high_pct": -23.1,
+    "above_52w_low_pct": 18.3,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -2418,12 +2421,12 @@
      "YAL.AX",
      "NHC.AX"
     ],
-    "rel_3m_pct": 6.2,
+    "rel_3m_pct": 6.9,
     "rel_6m_pct": -16.5,
-    "rel_12m_pct": 26.9,
-    "ratio_vs_200d_pct": 0.7,
-    "off_52w_high_pct": -19.7,
-    "above_52w_low_pct": 30.0,
+    "rel_12m_pct": 26.1,
+    "ratio_vs_200d_pct": -0.6,
+    "off_52w_high_pct": -20.7,
+    "above_52w_low_pct": 28.4,
     "rel_higher_low": true
    },
    "price": {
@@ -2479,8 +2482,8 @@
    "revisions": {
     "median_fy2_eps_rev_90d_pct": -16.1,
     "by_ticker": {
-     "BTU": -27.9,
-     "HCC": -7.4,
+     "BTU": -27.8,
+     "HCC": -6.6,
      "CNR": -16.1
     }
    },
@@ -2525,24 +2528,24 @@
     "tickers_used": [
      "COPX"
     ],
-    "rel_3m_pct": 8.7,
-    "rel_6m_pct": -1.6,
-    "rel_12m_pct": 32.4,
-    "ratio_vs_200d_pct": -3.3,
-    "off_52w_high_pct": -11.6,
-    "above_52w_low_pct": 53.6,
+    "rel_3m_pct": 5.8,
+    "rel_6m_pct": -8.6,
+    "rel_12m_pct": 23.5,
+    "ratio_vs_200d_pct": -5.4,
+    "off_52w_high_pct": -13.5,
+    "above_52w_low_pct": 49.1,
     "rel_higher_low": true
    },
    "rs_asx": {
     "tickers_used": [
      "SFR.AX"
     ],
-    "rel_3m_pct": 19.9,
-    "rel_6m_pct": 30.4,
-    "rel_12m_pct": 55.1,
-    "ratio_vs_200d_pct": 17.4,
-    "off_52w_high_pct": -7.7,
-    "above_52w_low_pct": 53.7,
+    "rel_3m_pct": 15.3,
+    "rel_6m_pct": 32.4,
+    "rel_12m_pct": 48.8,
+    "ratio_vs_200d_pct": 15.4,
+    "off_52w_high_pct": -9.2,
+    "above_52w_low_pct": 49.0,
     "rel_higher_low": true
    },
    "price": {
@@ -2608,9 +2611,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 8.2,
+    "median_fy2_eps_rev_90d_pct": 7.7,
     "by_ticker": {
-     "FCX": 6.3,
+     "FCX": 5.2,
      "SCCO": 10.1
     }
    },
@@ -2659,24 +2662,24 @@
      "WLK",
      "CE"
     ],
-    "rel_3m_pct": -7.3,
-    "rel_6m_pct": -44.6,
-    "rel_12m_pct": -8.0,
-    "ratio_vs_200d_pct": -20.8,
-    "off_52w_high_pct": -34.7,
-    "above_52w_low_pct": 26.9,
+    "rel_3m_pct": -8.8,
+    "rel_6m_pct": -44.0,
+    "rel_12m_pct": -12.5,
+    "ratio_vs_200d_pct": -22.6,
+    "off_52w_high_pct": -36.4,
+    "above_52w_low_pct": 23.6,
     "rel_higher_low": true
    },
    "rs_asx": {
     "tickers_used": [
      "ORI.AX"
     ],
-    "rel_3m_pct": -2.7,
-    "rel_6m_pct": 11.9,
-    "rel_12m_pct": 11.7,
-    "ratio_vs_200d_pct": 1.9,
-    "off_52w_high_pct": -11.2,
-    "above_52w_low_pct": 24.9,
+    "rel_3m_pct": -2.5,
+    "rel_6m_pct": 13.0,
+    "rel_12m_pct": 10.3,
+    "ratio_vs_200d_pct": 0.9,
+    "off_52w_high_pct": -12.2,
+    "above_52w_low_pct": 23.5,
     "rel_higher_low": true
    },
    "price": {
@@ -2751,13 +2754,13 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -15.5,
+    "median_fy2_eps_rev_90d_pct": -16.2,
     "by_ticker": {
-     "DOW": -18.1,
-     "LYB": -15.5,
-     "OLN": -15.4,
-     "WLK": -18.8,
-     "CE": -6.1
+     "DOW": -16.2,
+     "LYB": -9.6,
+     "OLN": -27.1,
+     "WLK": -22.3,
+     "CE": -6.0
     }
    },
    "screen": {
@@ -2802,12 +2805,12 @@
      "CF",
      "MOS"
     ],
-    "rel_3m_pct": 1.9,
-    "rel_6m_pct": -26.1,
-    "rel_12m_pct": -18.2,
-    "ratio_vs_200d_pct": -7.0,
-    "off_52w_high_pct": -19.5,
-    "above_52w_low_pct": 25.2,
+    "rel_3m_pct": 1.2,
+    "rel_6m_pct": -24.9,
+    "rel_12m_pct": -18.6,
+    "ratio_vs_200d_pct": -8.7,
+    "off_52w_high_pct": -21.1,
+    "above_52w_low_pct": 22.7,
     "rel_higher_low": true
    },
    "rs_asx": {
@@ -2815,12 +2818,12 @@
      "DNL.AX",
      "NUF.AX"
     ],
-    "rel_3m_pct": 12.1,
-    "rel_6m_pct": 40.1,
-    "rel_12m_pct": 38.7,
-    "ratio_vs_200d_pct": 21.5,
-    "off_52w_high_pct": -2.9,
-    "above_52w_low_pct": 57.8,
+    "rel_3m_pct": 11.5,
+    "rel_6m_pct": 33.6,
+    "rel_12m_pct": 35.8,
+    "ratio_vs_200d_pct": 20.7,
+    "off_52w_high_pct": -3.3,
+    "above_52w_low_pct": 57.1,
     "rel_higher_low": true
    },
    "price": {
@@ -2875,9 +2878,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -8.8,
+    "median_fy2_eps_rev_90d_pct": -7.8,
     "by_ticker": {
-     "CF": -0.6,
+     "CF": 1.2,
      "MOS": -16.9
     }
    },
@@ -2924,12 +2927,12 @@
      "GNK",
      "INSW"
     ],
-    "rel_3m_pct": 19.3,
-    "rel_6m_pct": 19.4,
-    "rel_12m_pct": 80.8,
-    "ratio_vs_200d_pct": 22.6,
-    "off_52w_high_pct": -4.8,
-    "above_52w_low_pct": 144.0,
+    "rel_3m_pct": 20.3,
+    "rel_6m_pct": 24.4,
+    "rel_12m_pct": 97.8,
+    "ratio_vs_200d_pct": 26.7,
+    "off_52w_high_pct": -1.1,
+    "above_52w_low_pct": 153.5,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -2986,7 +2989,7 @@
    "revisions": {
     "median_fy2_eps_rev_90d_pct": 0.0,
     "by_ticker": {
-     "MATX": 10.2,
+     "MATX": 7.5,
      "GNK": -1.3,
      "INSW": 0.0
     }
@@ -3034,12 +3037,12 @@
      "HLT",
      "HST"
     ],
-    "rel_3m_pct": -7.5,
-    "rel_6m_pct": -4.0,
-    "rel_12m_pct": 14.9,
-    "ratio_vs_200d_pct": -1.7,
-    "off_52w_high_pct": -7.8,
-    "above_52w_low_pct": 39.1,
+    "rel_3m_pct": -7.1,
+    "rel_6m_pct": -5.3,
+    "rel_12m_pct": 16.2,
+    "ratio_vs_200d_pct": -2.3,
+    "off_52w_high_pct": -8.5,
+    "above_52w_low_pct": 38.1,
     "rel_higher_low": true
    },
    "rs_asx": null,
@@ -3076,9 +3079,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 0.5,
+    "median_fy2_eps_rev_90d_pct": 0.6,
     "by_ticker": {
-     "MAR": 0.5,
+     "MAR": 0.6,
      "HLT": 0.4,
      "HST": 5.6
     }
@@ -3125,11 +3128,11 @@
      "WY",
      "RYN"
     ],
-    "rel_3m_pct": -18.5,
-    "rel_6m_pct": -26.2,
-    "rel_12m_pct": -29.3,
-    "ratio_vs_200d_pct": -19.5,
-    "off_52w_high_pct": -22.8,
+    "rel_3m_pct": -19.9,
+    "rel_6m_pct": -28.5,
+    "rel_12m_pct": -33.1,
+    "ratio_vs_200d_pct": -22.6,
+    "off_52w_high_pct": -26.2,
     "above_52w_low_pct": 0.0,
     "rel_higher_low": false
    },
@@ -3174,9 +3177,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -0.1,
+    "median_fy2_eps_rev_90d_pct": -1.0,
     "by_ticker": {
-     "WY": -3.5,
+     "WY": -5.2,
      "RYN": 3.3
     }
    },
@@ -3224,12 +3227,12 @@
      "A",
      "WAT"
     ],
-    "rel_3m_pct": 22.0,
-    "rel_6m_pct": 20.5,
-    "rel_12m_pct": 23.4,
-    "ratio_vs_200d_pct": 15.9,
-    "off_52w_high_pct": 0.0,
-    "above_52w_low_pct": 47.5,
+    "rel_3m_pct": 14.8,
+    "rel_6m_pct": 13.8,
+    "rel_12m_pct": 12.2,
+    "ratio_vs_200d_pct": 10.5,
+    "off_52w_high_pct": -4.8,
+    "above_52w_low_pct": 40.4,
     "rel_higher_low": false
    },
    "rs_asx": null,
@@ -3291,12 +3294,12 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 0.8,
+    "median_fy2_eps_rev_90d_pct": 0.9,
     "by_ticker": {
      "TMO": 1.1,
-     "DHR": 0.5,
+     "DHR": 0.6,
      "A": 2.2,
-     "WAT": 0.5
+     "WAT": 0.4
     }
    },
    "screen": {
@@ -3340,12 +3343,12 @@
     "tickers_used": [
      "XRT"
     ],
-    "rel_3m_pct": -9.2,
-    "rel_6m_pct": -13.1,
-    "rel_12m_pct": -17.3,
-    "ratio_vs_200d_pct": -10.0,
-    "off_52w_high_pct": -10.4,
-    "above_52w_low_pct": 7.8,
+    "rel_3m_pct": -8.6,
+    "rel_6m_pct": -12.2,
+    "rel_12m_pct": -16.6,
+    "ratio_vs_200d_pct": -9.5,
+    "off_52w_high_pct": -10.3,
+    "above_52w_low_pct": 7.9,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -3355,12 +3358,12 @@
      "SUL.AX",
      "PMV.AX"
     ],
-    "rel_3m_pct": -8.1,
-    "rel_6m_pct": -5.9,
-    "rel_12m_pct": -32.6,
-    "ratio_vs_200d_pct": -8.1,
-    "off_52w_high_pct": -33.7,
-    "above_52w_low_pct": 5.5,
+    "rel_3m_pct": -4.6,
+    "rel_6m_pct": -2.2,
+    "rel_12m_pct": -31.6,
+    "ratio_vs_200d_pct": -6.2,
+    "off_52w_high_pct": -32.7,
+    "above_52w_low_pct": 7.2,
     "rel_higher_low": false
    },
    "price": null,
@@ -3464,24 +3467,24 @@
      "AA",
      "CENX"
     ],
-    "rel_3m_pct": -22.7,
-    "rel_6m_pct": -38.5,
-    "rel_12m_pct": 22.2,
-    "ratio_vs_200d_pct": -31.0,
-    "off_52w_high_pct": -47.3,
-    "above_52w_low_pct": 35.7,
+    "rel_3m_pct": -17.6,
+    "rel_6m_pct": -50.4,
+    "rel_12m_pct": 11.5,
+    "ratio_vs_200d_pct": -32.2,
+    "off_52w_high_pct": -48.4,
+    "above_52w_low_pct": 29.7,
     "rel_higher_low": true
    },
    "rs_asx": {
     "tickers_used": [
      "S32.AX"
     ],
-    "rel_3m_pct": 22.7,
-    "rel_6m_pct": 12.7,
-    "rel_12m_pct": 87.0,
-    "ratio_vs_200d_pct": 16.8,
-    "off_52w_high_pct": -3.8,
-    "above_52w_low_pct": 87.6,
+    "rel_3m_pct": 20.9,
+    "rel_6m_pct": 9.2,
+    "rel_12m_pct": 83.5,
+    "ratio_vs_200d_pct": 14.0,
+    "off_52w_high_pct": -5.9,
+    "above_52w_low_pct": 80.9,
     "rel_higher_low": true
    },
    "price": {
@@ -3539,9 +3542,9 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -18.3,
+    "median_fy2_eps_rev_90d_pct": -16.4,
     "by_ticker": {
-     "AA": -24.1,
+     "AA": -20.3,
      "CENX": -12.5
     }
    },
@@ -3586,12 +3589,12 @@
     "tickers_used": [
      "OIH"
     ],
-    "rel_3m_pct": 0.9,
-    "rel_6m_pct": -22.8,
-    "rel_12m_pct": 28.1,
-    "ratio_vs_200d_pct": -5.8,
-    "off_52w_high_pct": -14.1,
-    "above_52w_low_pct": 63.6,
+    "rel_3m_pct": 3.1,
+    "rel_6m_pct": -17.9,
+    "rel_12m_pct": 28.7,
+    "ratio_vs_200d_pct": -7.8,
+    "off_52w_high_pct": -16.0,
+    "above_52w_low_pct": 59.9,
     "rel_higher_low": true
    },
    "rs_asx": {
@@ -3599,11 +3602,11 @@
      "WOR.AX"
     ],
     "rel_3m_pct": -8.4,
-    "rel_6m_pct": -14.2,
-    "rel_12m_pct": -28.8,
-    "ratio_vs_200d_pct": -14.3,
-    "off_52w_high_pct": -30.7,
-    "above_52w_low_pct": 0.2,
+    "rel_6m_pct": -15.2,
+    "rel_12m_pct": -28.4,
+    "ratio_vs_200d_pct": -14.9,
+    "off_52w_high_pct": -31.4,
+    "above_52w_low_pct": 0.0,
     "rel_higher_low": false
    },
    "price": {
@@ -3666,12 +3669,12 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -0.9,
+    "median_fy2_eps_rev_90d_pct": -1.1,
     "by_ticker": {
-     "SLB": -3.3,
-     "HAL": -0.9,
-     "BKR": 10.1,
-     "RIG": 4.7,
+     "SLB": -2.7,
+     "HAL": -1.1,
+     "BKR": 8.2,
+     "RIG": 5.7,
      "VAL": -3.7
     }
    },
@@ -3720,12 +3723,12 @@
      "FMG.AX",
      "CIA.AX"
     ],
-    "rel_3m_pct": -7.8,
-    "rel_6m_pct": -14.8,
-    "rel_12m_pct": 7.8,
-    "ratio_vs_200d_pct": -9.5,
-    "off_52w_high_pct": -20.8,
-    "above_52w_low_pct": 8.5,
+    "rel_3m_pct": -7.5,
+    "rel_6m_pct": -14.9,
+    "rel_12m_pct": 6.7,
+    "ratio_vs_200d_pct": -10.1,
+    "off_52w_high_pct": -21.5,
+    "above_52w_low_pct": 6.3,
     "rel_higher_low": true
    },
    "price": {
@@ -3783,12 +3786,12 @@
      "OC",
      "MAS"
     ],
-    "rel_3m_pct": -20.1,
-    "rel_6m_pct": -14.5,
-    "rel_12m_pct": -23.6,
-    "ratio_vs_200d_pct": -14.2,
-    "off_52w_high_pct": -18.6,
-    "above_52w_low_pct": 6.0,
+    "rel_3m_pct": -21.6,
+    "rel_6m_pct": -16.6,
+    "rel_12m_pct": -25.6,
+    "ratio_vs_200d_pct": -15.3,
+    "off_52w_high_pct": -20.1,
+    "above_52w_low_pct": 4.1,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -3797,12 +3800,12 @@
      "FBU.AX",
      "RWC.AX"
     ],
-    "rel_3m_pct": 9.4,
-    "rel_6m_pct": 33.0,
-    "rel_12m_pct": 16.3,
-    "ratio_vs_200d_pct": 13.5,
-    "off_52w_high_pct": -9.1,
-    "above_52w_low_pct": 39.2,
+    "rel_3m_pct": 9.8,
+    "rel_6m_pct": 37.0,
+    "rel_12m_pct": 15.2,
+    "ratio_vs_200d_pct": 14.2,
+    "off_52w_high_pct": -8.5,
+    "above_52w_low_pct": 40.0,
     "rel_higher_low": false
    },
    "price": {
@@ -3880,9 +3883,9 @@
    "revisions": {
     "median_fy2_eps_rev_90d_pct": -1.7,
     "by_ticker": {
-     "MLM": -8.4,
+     "MLM": -3.9,
      "VMC": -2.2,
-     "OC": 0.8,
+     "OC": 1.0,
      "MAS": -1.1
     }
    },
@@ -3927,12 +3930,12 @@
     "tickers_used": [
      "GDX"
     ],
-    "rel_3m_pct": 12.1,
-    "rel_6m_pct": -15.6,
-    "rel_12m_pct": 2.9,
-    "ratio_vs_200d_pct": -10.2,
-    "off_52w_high_pct": -24.1,
-    "above_52w_low_pct": 29.7,
+    "rel_3m_pct": 7.5,
+    "rel_6m_pct": -22.9,
+    "rel_12m_pct": -1.3,
+    "ratio_vs_200d_pct": -11.1,
+    "off_52w_high_pct": -25.1,
+    "above_52w_low_pct": 28.0,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -3943,12 +3946,12 @@
      "PRU.AX",
      "GMD.AX"
     ],
-    "rel_3m_pct": 27.5,
-    "rel_6m_pct": 8.8,
-    "rel_12m_pct": 18.8,
-    "ratio_vs_200d_pct": 9.0,
-    "off_52w_high_pct": -13.1,
-    "above_52w_low_pct": 37.1,
+    "rel_3m_pct": 18.8,
+    "rel_6m_pct": 11.5,
+    "rel_12m_pct": 15.5,
+    "ratio_vs_200d_pct": 8.1,
+    "off_52w_high_pct": -13.8,
+    "above_52w_low_pct": 35.9,
     "rel_higher_low": false
    },
    "price": null,
@@ -3999,10 +4002,10 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -7.0,
+    "median_fy2_eps_rev_90d_pct": -7.2,
     "by_ticker": {
-     "NEM": -9.8,
-     "RGLD": -4.2
+     "NEM": -10.0,
+     "RGLD": -4.3
     }
    },
    "screen": {
@@ -4049,12 +4052,12 @@
      "TSN",
      "PPC"
     ],
-    "rel_3m_pct": -5.2,
-    "rel_6m_pct": -26.3,
-    "rel_12m_pct": -7.0,
-    "ratio_vs_200d_pct": -12.0,
-    "off_52w_high_pct": -11.9,
-    "above_52w_low_pct": 11.7,
+    "rel_3m_pct": -7.4,
+    "rel_6m_pct": -27.2,
+    "rel_12m_pct": -9.4,
+    "ratio_vs_200d_pct": -14.9,
+    "off_52w_high_pct": -15.2,
+    "above_52w_low_pct": 7.6,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -4063,12 +4066,12 @@
      "ELD.AX",
      "AAC.AX"
     ],
-    "rel_3m_pct": 18.2,
-    "rel_6m_pct": -2.2,
-    "rel_12m_pct": -11.8,
-    "ratio_vs_200d_pct": 6.1,
-    "off_52w_high_pct": -11.2,
-    "above_52w_low_pct": 21.9,
+    "rel_3m_pct": 18.0,
+    "rel_6m_pct": -2.0,
+    "rel_12m_pct": -10.8,
+    "ratio_vs_200d_pct": 5.5,
+    "off_52w_high_pct": -11.7,
+    "above_52w_low_pct": 20.9,
     "rel_higher_low": false
    },
    "price": {
@@ -4184,11 +4187,11 @@
      "STZ",
      "BF-B"
     ],
-    "rel_3m_pct": -14.9,
-    "rel_6m_pct": -28.7,
-    "rel_12m_pct": -18.9,
-    "ratio_vs_200d_pct": -17.4,
-    "off_52w_high_pct": -21.1,
+    "rel_3m_pct": -11.2,
+    "rel_6m_pct": -25.3,
+    "rel_12m_pct": -19.0,
+    "ratio_vs_200d_pct": -17.0,
+    "off_52w_high_pct": -21.2,
     "above_52w_low_pct": 0.0,
     "rel_higher_low": false
    },
@@ -4196,12 +4199,12 @@
     "tickers_used": [
      "TWE.AX"
     ],
-    "rel_3m_pct": 20.1,
-    "rel_6m_pct": 42.3,
-    "rel_12m_pct": -24.1,
+    "rel_3m_pct": 22.0,
+    "rel_6m_pct": 42.2,
+    "rel_12m_pct": -23.7,
     "ratio_vs_200d_pct": 13.9,
-    "off_52w_high_pct": -24.2,
-    "above_52w_low_pct": 60.2,
+    "off_52w_high_pct": -23.7,
+    "above_52w_low_pct": 59.9,
     "rel_higher_low": true
    },
    "price": null,
@@ -4302,12 +4305,12 @@
     "tickers_used": [
      "KIE"
     ],
-    "rel_3m_pct": -6.3,
-    "rel_6m_pct": -8.0,
-    "rel_12m_pct": -12.2,
-    "ratio_vs_200d_pct": -6.1,
-    "off_52w_high_pct": -10.4,
-    "above_52w_low_pct": 11.6,
+    "rel_3m_pct": -9.9,
+    "rel_6m_pct": -7.0,
+    "rel_12m_pct": -12.4,
+    "ratio_vs_200d_pct": -6.0,
+    "off_52w_high_pct": -10.6,
+    "above_52w_low_pct": 11.3,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -4316,12 +4319,12 @@
      "IAG.AX",
      "SUN.AX"
     ],
-    "rel_3m_pct": -1.0,
-    "rel_6m_pct": 14.6,
-    "rel_12m_pct": 6.2,
-    "ratio_vs_200d_pct": 9.8,
-    "off_52w_high_pct": -4.2,
-    "above_52w_low_pct": 27.5,
+    "rel_3m_pct": -0.2,
+    "rel_6m_pct": 12.6,
+    "rel_12m_pct": 3.2,
+    "ratio_vs_200d_pct": 7.0,
+    "off_52w_high_pct": -6.6,
+    "above_52w_low_pct": 24.2,
     "rel_higher_low": true
    },
    "price": {
@@ -4335,11 +4338,11 @@
    "capu": null,
    "edgar": null,
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": 5.5,
+    "median_fy2_eps_rev_90d_pct": 5.7,
     "by_ticker": {
-     "TRV": 6.0,
-     "ALL": 5.5,
-     "CB": -0.5
+     "TRV": 6.2,
+     "ALL": 5.7,
+     "CB": -0.2
     }
    },
    "screen": {
@@ -4383,12 +4386,12 @@
     "tickers_used": [
      "ITB"
     ],
-    "rel_3m_pct": -16.9,
-    "rel_6m_pct": -16.9,
-    "rel_12m_pct": -27.5,
-    "ratio_vs_200d_pct": -14.6,
-    "off_52w_high_pct": -20.9,
-    "above_52w_low_pct": 4.0,
+    "rel_3m_pct": -16.7,
+    "rel_6m_pct": -17.3,
+    "rel_12m_pct": -28.8,
+    "ratio_vs_200d_pct": -15.4,
+    "off_52w_high_pct": -22.1,
+    "above_52w_low_pct": 2.3,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -4396,12 +4399,12 @@
      "SGP.AX",
      "MGR.AX"
     ],
-    "rel_3m_pct": 3.8,
-    "rel_6m_pct": 2.2,
-    "rel_12m_pct": -24.0,
-    "ratio_vs_200d_pct": -3.1,
-    "off_52w_high_pct": -29.6,
-    "above_52w_low_pct": 13.7,
+    "rel_3m_pct": 6.2,
+    "rel_6m_pct": 7.4,
+    "rel_12m_pct": -22.7,
+    "ratio_vs_200d_pct": -1.7,
+    "off_52w_high_pct": -28.9,
+    "above_52w_low_pct": 14.9,
     "rel_higher_low": false
    },
    "price": {
@@ -4471,7 +4474,7 @@
     "median_fy2_eps_rev_90d_pct": -3.5,
     "by_ticker": {
      "DHI": -5.0,
-     "LEN": -20.2,
+     "LEN": -20.5,
      "PHM": -0.8,
      "TOL": -2.1
     }
@@ -4517,12 +4520,12 @@
     "tickers_used": [
      "JETS"
     ],
-    "rel_3m_pct": -16.9,
-    "rel_6m_pct": -2.7,
-    "rel_12m_pct": -1.4,
-    "ratio_vs_200d_pct": -6.8,
-    "off_52w_high_pct": -15.0,
-    "above_52w_low_pct": 21.3,
+    "rel_3m_pct": -17.7,
+    "rel_6m_pct": -5.1,
+    "rel_12m_pct": -0.9,
+    "ratio_vs_200d_pct": -7.8,
+    "off_52w_high_pct": -16.2,
+    "above_52w_low_pct": 19.6,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -4531,11 +4534,11 @@
      "VGN.AX"
     ],
     "rel_3m_pct": -7.0,
-    "rel_6m_pct": 14.3,
-    "rel_12m_pct": -14.9,
-    "ratio_vs_200d_pct": 2.4,
-    "off_52w_high_pct": -15.5,
-    "above_52w_low_pct": 23.8,
+    "rel_6m_pct": 16.3,
+    "rel_12m_pct": -17.0,
+    "ratio_vs_200d_pct": 0.1,
+    "off_52w_high_pct": -17.3,
+    "above_52w_low_pct": 20.8,
     "rel_higher_low": false
    },
    "price": {
@@ -4598,11 +4601,12 @@
     }
    },
    "revisions": {
-    "median_fy2_eps_rev_90d_pct": -0.1,
+    "median_fy2_eps_rev_90d_pct": -2.3,
     "by_ticker": {
-     "UAL": -0.1,
-     "AAL": -12.8,
-     "LUV": 3.3
+     "DAL": 4.4,
+     "UAL": -3.5,
+     "AAL": -21.6,
+     "LUV": -1.1
     }
    },
    "screen": {
@@ -4646,12 +4650,12 @@
     "tickers_used": [
      "URA"
     ],
-    "rel_3m_pct": -11.8,
-    "rel_6m_pct": -29.1,
-    "rel_12m_pct": -27.3,
-    "ratio_vs_200d_pct": -22.6,
-    "off_52w_high_pct": -35.1,
-    "above_52w_low_pct": 7.0,
+    "rel_3m_pct": -10.9,
+    "rel_6m_pct": -31.4,
+    "rel_12m_pct": -24.9,
+    "ratio_vs_200d_pct": -23.2,
+    "off_52w_high_pct": -35.9,
+    "above_52w_low_pct": 5.5,
     "rel_higher_low": false
    },
    "rs_asx": {
@@ -4661,12 +4665,12 @@
      "DYL.AX",
      "BMN.AX"
     ],
-    "rel_3m_pct": 6.0,
-    "rel_6m_pct": -15.8,
-    "rel_12m_pct": -11.2,
-    "ratio_vs_200d_pct": -8.7,
-    "off_52w_high_pct": -33.7,
-    "above_52w_low_pct": 18.2,
+    "rel_3m_pct": -3.6,
+    "rel_6m_pct": -17.1,
+    "rel_12m_pct": -18.0,
+    "ratio_vs_200d_pct": -15.0,
+    "off_52w_high_pct": -38.3,
+    "above_52w_low_pct": 9.8,
     "rel_higher_low": false
    },
    "price": {
@@ -4682,24 +4686,30 @@
     "capex_companies": [
      "UEC"
     ],
-    "capex_da_latest": 1.9,
-    "capex_da_latest_year": 2025,
-    "capex_da_3y_avg": 1.36,
-    "capex_da_longrun_avg": 1.14,
-    "capex_da_years_below_1_last5": 3,
+    "capex_da_latest": 2.01,
+    "capex_da_latest_year": 2026,
+    "capex_da_3y_avg": 1.86,
+    "capex_da_longrun_avg": 1.28,
+    "capex_da_years_below_1_last5": 2,
     "capex_da_history": {
      "2021": 0.78,
      "2022": 0.83,
      "2023": 0.52,
      "2024": 1.66,
-     "2025": 1.9
+     "2025": 1.9,
+     "2026": 2.01
     },
     "margin_companies": [
      "UEC"
     ],
     "margin_note": "not meaningful (revenue too small relative to costs, e.g. pre-production)"
    },
-   "revisions": null,
+   "revisions": {
+    "median_fy2_eps_rev_90d_pct": -400.0,
+    "by_ticker": {
+     "UEC": -400.0
+    }
+   },
    "screen": {
     "supply": {
      "capex_below_DA_latest": false,
@@ -4714,7 +4724,7 @@
      "margin_up_yoy": null,
      "price_yoy_improving": false,
      "capu_up_12m": null,
-     "eps_revisions_positive": null,
+     "eps_revisions_positive": false,
      "rel_strength_above_200d": false,
      "rel_higher_low": false
     },
@@ -4730,7 +4740,7 @@
     },
     "turn_tally": {
      "hits": 0,
-     "available": 3,
+     "available": 4,
      "of": 6
     }
    }
